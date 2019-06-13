@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NSS APPLICATION</string>
+
+
+    <string name="open_drawer">open</string>
+
+    <string name="close_drawer">close</string>
+
+    <string name="home_activity_string">HOME</string>
+    <string name="report_activty_string">ACTIVITY REPORTS</string>
+    <string name="photo_activity_string">ACTIVITY PHOTOS</string>
+    <string name="Program_officier_activity_string">PROGRAM OFFICER</string>
+    <string name="about_us_activity_string">ABOUT US</string>
+
+
+</resources>

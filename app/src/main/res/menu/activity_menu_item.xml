@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Home_Menu"
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/Acrivity_Report_Menu"
+        android:icon="@drawable/home"
+        android:title="Activity Report" />
+
+    <item
+        android:id="@+id/Activity_Photos_Menu"
+        android:icon="@drawable/home"
+        android:title="Activity Photos" />
+
+    <item
+        android:id="@+id/Program_Officier_Menu"
+        android:icon="@drawable/home"
+        android:title="Program Officier" />
+
+    <item
+        android:id="@+id/About_Us_Menu"
+        android:icon="@drawable/home"
+        android:title="About_Us_Menu" />
+
+
+</menu>
