@@ -8,23 +8,29 @@
 
     <item
         android:id="@+id/Acrivity_Report_Menu"
-        android:icon="@drawable/home"
+        android:icon="@drawable/report_menu_logo"
         android:title="Activity Report" />
 
     <item
         android:id="@+id/Activity_Photos_Menu"
-        android:icon="@drawable/home"
+        android:icon="@drawable/photos_menu"
         android:title="Activity Photos" />
 
     <item
         android:id="@+id/Program_Officier_Menu"
-        android:icon="@drawable/home"
+        android:icon="@drawable/prog_officier_menu_logo"
         android:title="Program Officier" />
 
     <item
         android:id="@+id/About_Us_Menu"
-        android:icon="@drawable/home"
-        android:title="About_Us_Menu" />
+        android:icon="@drawable/about_us_menu_logo"
+        android:title="About Us" />
+
+
+    <item
+        android:id="@+id/Logout_Menu"
+        android:icon="@drawable/logout_menu_logo"
+        android:title="Logout" />
 
 
 </menu>
