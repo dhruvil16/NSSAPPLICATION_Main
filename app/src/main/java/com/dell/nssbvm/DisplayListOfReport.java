@@ -1,8 +1,11 @@
 package com.dell.nssbvm;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -11,6 +14,9 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +77,7 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
 
         listView = getActivity().findViewById(R.id.Id_Activity_Photo_ListView);
 
-         year = getArguments().getInt("year");
+        year = getArguments().getInt("year");
 
 
         if (year == 0) {
@@ -110,7 +116,7 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-  //              download_url = "https://firebasestorage.googleapis.com/v0/b/nssapplication-fe86c.appspot.com/o/File(2017-18)%2Fblood_donation__camp%5B1%5D.docx?alt=media&token=cb93e037-f256-4f10-a352-0b0595596292";
+                //              download_url = "https://firebasestorage.googleapis.com/v0/b/nssapplication-fe86c.appspot.com/o/File(2017-18)%2Fblood_donation__camp%5B1%5D.docx?alt=media&token=cb93e037-f256-4f10-a352-0b0595596292";
 
 
                 ActivityPhotoModalClass obj = (ActivityPhotoModalClass) list.get(position);
@@ -121,7 +127,7 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
                 if(year==0)
                 {
                     if(filename.equals("Annual Report"))
-                    download_url = "https://firebasestorage.googleapis.com/v0/b/nssapplication-fe86c.appspot.com/o/File(2016-17)%2FNational%20Service%20Scheme%20Annual%20Report%20of%20Academic%20Year%202016.pdf?alt=media&token=f07e183b-79a9-4326-8ecb-45a52dcffe3e";
+                        download_url = "https://firebasestorage.googleapis.com/v0/b/nssapplication-fe86c.appspot.com/o/File(2016-17)%2FNational%20Service%20Scheme%20Annual%20Report%20of%20Academic%20Year%202016.pdf?alt=media&token=f07e183b-79a9-4326-8ecb-45a52dcffe3e";
                 }
                 else if(year==1)
                 {
@@ -196,7 +202,7 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
                 File directory = new File(path);
 
                 File[] files = directory.listFiles();
-         //       Log.e("Files", "Size: " + files.length);
+                //       Log.e("Files", "Size: " + files.length);
                 String temp = filename+"_"+(year+2016)+".pdf";
                 if(files!=null) {
                     for (int i = 0; i < files.length; i++) {
@@ -229,8 +235,6 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
                             //Get the URL entered
                             new DownloadFile().execute(download_url);
 
-
-
                         } else {
                             //If permission is not present request for the same.
                             EasyPermissions.requestPermissions(getActivity(), getString(R.string.write_file), WRITE_REQUEST_CODE, Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -259,9 +263,6 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
     public void onPermissionsGranted(int requestCode, List<String> perms) {
         //Download the file once permission is granted
         new DownloadFile().execute(download_url);
-
-
-
     }
 
     @Override
@@ -314,11 +315,8 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
                 InputStream input = new BufferedInputStream(url.openStream(), 8192);
 
           /*
-
            does not require mostly
-
                 String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-
             */
                 String timestamp =
 
@@ -389,7 +387,7 @@ public class DisplayListOfReport extends FragmentThatRespondToBackButton impleme
             Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
 
             // open file after downloaded
-               String path = Environment.getExternalStorageDirectory().toString() + "/NSS APPLICATION";
+            String path = Environment.getExternalStorageDirectory().toString() + "/NSS APPLICATION";
             File fileToBeOpen = new File(path + "/" + filename+"_"+(year+2016)+".pdf");
             Log.e("Tag",""+fileToBeOpen.getAbsolutePath());
             Intent intent = new Intent();
